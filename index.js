@@ -3,14 +3,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 // Routes
-const studentRoutes = require('../routes/studentRoutes');
-const attendanceRoutes = require('../routes/attendanceRoutes');
-const classRoutes = require('../routes/classRoutes');
-const feeRoutes = require('../routes/feeRoutes');
-const noticeRoutes = require('../routes/noticeRoutes');
-const profileRoutes = require('../routes/profileRoutes');
-const resultRoutes = require('../routes/resultRoutes');
-const settingRoutes = require('../routes/settingRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const attendanceRoutes = require('./routes/attendanceRoutes');
+const classRoutes = require('./routes/classRoutes');
+const feeRoutes = require('./routes/feeRoutes');
+const noticeRoutes = require('./routes/noticeRoutes');
+const profileRoutes = require('./routes/profileRoutes');
+const resultRoutes = require('./routes/resultRoutes');
+const settingRoutes = require('./routes/settingRoutes');
 
 const app = express();
 
