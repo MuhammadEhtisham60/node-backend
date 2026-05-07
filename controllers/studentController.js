@@ -34,9 +34,12 @@ const getStudentById = async (req, res) => {
 // @access  Public
 const createStudent = async (req, res) => {
   try {
-    const { name, class: studentClass, section, gender, parent, phone, status } = req.body;
+    const { name, fullName } = req.body;
 
-    if (!name) {
+    // Use name if provided, else use fullName from frontend data
+    const studentName = name || fullName;
+
+    if (!studentName) {
       return res.status(400).json({ message: 'Please provide at least a name' });
     }
 
@@ -45,14 +48,9 @@ const createStudent = async (req, res) => {
     const newId = `STU-${1000 + count + 1}`;
     
     const newStudent = await Student.create({
+      ...req.body,
       id: newId,
-      name,
-      class: studentClass || "",
-      section: section || "",
-      gender: gender || "Male",
-      parent: parent || "",
-      phone: phone || "",
-      status: status || "Active"
+      name: studentName
     });
 
     res.status(201).json(newStudent);
